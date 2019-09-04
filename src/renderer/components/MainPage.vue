@@ -75,7 +75,7 @@
         ret = ret.replace(/B/g, "<span class='marker-B'>B</span>");
         ret = ret.replace(/C/g, "<span class='marker-C'>C</span>");
         ret = ret.replace(/([^HD])1/g, "$1<span class='marker-1'>1</span>");
-        ret = ret.replace(/([^HD])2/g, "$2<span class='marker-2'>2</span>");
+        ret = ret.replace(/([^HD])2/g, "$1<span class='marker-2'>2</span>");
         if (meRole) {
           const re = new RegExp(meRole, 'g');
           ret = ret.replace(re, "<span class='me'>$&</span>");

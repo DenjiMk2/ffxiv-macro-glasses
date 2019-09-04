@@ -89,35 +89,37 @@
 <style lang="scss">
 body{
   font-family: sans-serif;
+  background-color: #383838;
+  color: #CCCCCC;
 }
 .outputPanel{
   font-size: 14px;
 }
 .dps{
-  color: red;
+  color: #FF9933;
 }
 .tank{
-  color: blue;
+  color: #0066FF;
 }
 .healer{
-  color: green;
+  color: #00CC00;
 }
 .marker-A{
-  color: red;
+  color: #db5872;
 }
 .marker-B{
-  color: darkorange;
+  color: gold;
 }
 .marker-C{
   color: blue;
 }
 .marker-1{
-  color: red;
+  color: #db5872;
 }
 .marker-2{
-  color: darkorange;
+  color: gold;
 }
 .me{
-  color: chocolate;
+  color: red;
 }
 </style>

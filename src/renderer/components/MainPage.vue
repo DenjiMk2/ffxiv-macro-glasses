@@ -63,9 +63,9 @@
         ret = ret.replace(/\r?\n/g, '<br>');
         // trim
         // 行頭用
-        ret = ret.replace(/^\[\d\d:\d\d\] \([^)]*\)/g, '');
+        ret = ret.replace(/^(\[\d?\d:\d\d\] )?\([^)]*\)/g, '');
         // ２行目以降用
-        ret = ret.replace(/<br>(\[\d\d:\d\d\])? \([^)]*\)/g, '<br>');
+        ret = ret.replace(/<br>(\[\d?\d:\d\d\] )?\([^)]*\)/g, '<br>');
         // マクロ用(1行目)
         ret = ret.replace(/^\/p/g, '<br>');
         // マクロ用(2行目以降)

@@ -71,21 +71,21 @@
         // マクロ用(2行目以降)
         ret = ret.replace(/<br>\/p/g, '<br>');
 
-        ret = ret.replace(/[MS]T/g, "<span class='tank'>$&</span>");
-        ret = ret.replace(/([^MS])T/g, `$1<span class='${tankClass}'>T</span>`);
+        ret = ret.replace(/[MSＭＳ][TＴ]/g, "<span class='tank'>$&</span>");
+        ret = ret.replace(/([^MSＭＳ])([TＴ])/g, `$1<span class='${tankClass}'>$2</span>`);
         ret = ret.replace(/タンク/g, `<span class='${tankClass}'>$&</span>`);
-        ret = ret.replace(/D[1-4]/g, "<span class='dps'>$&</span>");
-        ret = ret.replace(/D([^1-4P])/g, `<span class='${dpsClass}'>D</span>$1`);
-        ret = ret.replace(/DPS/g, `<span class='${dpsClass}'>$&</span>`);
-        ret = ret.replace(/H[1-2]/g, "<span class='healer'>$&</span>");
-        ret = ret.replace(/H([^1-2])/g, `<span class='${healerClass}'>H</span>$1`);
+        ret = ret.replace(/[DＤ][1-4１-４]/g, "<span class='dps'>$&</span>");
+        ret = ret.replace(/([DＤ])([^1-4１-４P])/g, `<span class='${dpsClass}'>$1</span>$2`);
+        ret = ret.replace(/(DPS|ＤＰＳ)/g, `<span class='${dpsClass}'>$&</span>`);
+        ret = ret.replace(/[HＨ][1-2１-２]/g, "<span class='healer'>$&</span>");
+        ret = ret.replace(/([HＨ])([^1-2１-２])/g, `<span class='${healerClass}'>$1</span>$2`);
         ret = ret.replace(/ヒーラー/g, `<span class='${healerClass}'>$&</span>`);
         ret = ret.replace(/ヒラ/g, `<span class='${healerClass}'>$&</span>`);
-        ret = ret.replace(/A/g, "<span class='marker-A'>A</span>");
-        ret = ret.replace(/B/g, "<span class='marker-B'>B</span>");
-        ret = ret.replace(/C/g, "<span class='marker-C'>C</span>");
-        ret = ret.replace(/([^HD])1/g, "$1<span class='marker-1'>1</span>");
-        ret = ret.replace(/([^HD])2/g, "$1<span class='marker-2'>2</span>");
+        ret = ret.replace(/[AＡ]/g, "<span class='marker-A'>A</span>");
+        ret = ret.replace(/[BＢ]/g, "<span class='marker-B'>B</span>");
+        ret = ret.replace(/[CＣ]/g, "<span class='marker-C'>C</span>");
+        ret = ret.replace(/([^HDＨＤ])([1１])/g, "$1<span class='marker-1'>$2</span>");
+        ret = ret.replace(/([^HDＨＤ])([2２])/g, "$1<span class='marker-2'>$2</span>");
         if (meRole) {
           const re = new RegExp(meRole, 'g');
           ret = ret.replace(re, "<span class='me'>$&</span>");

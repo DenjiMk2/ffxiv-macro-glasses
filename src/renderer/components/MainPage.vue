@@ -15,8 +15,8 @@
     </div>
     <textarea v-model="inMacro" @input="throwGlass">
     </textarea>
-    <div class="outputPanel" v-html="outMacro">
-    </div>
+    <pre class="outputPanel" v-html="outMacro">
+    </pre>
   </div>
 </template>
 
@@ -59,17 +59,15 @@
               break;
           }
         }
-        // 改行
-        ret = ret.replace(/\r?\n/g, '<br>');
         // trim
         // 行頭用
         ret = ret.replace(/^(\[\d?\d:\d\d\] )?\([^)]*\)/g, '');
         // ２行目以降用
-        ret = ret.replace(/<br>(\[\d?\d:\d\d\] )?\([^)]*\)/g, '<br>');
+        ret = ret.replace(/\r?\n(\[\d?\d:\d\d\] )?\([^)]*\)/g, '\n');
         // マクロ用(1行目)
-        ret = ret.replace(/^\/p/g, '<br>');
+        ret = ret.replace(/^\/p/g, '\n');
         // マクロ用(2行目以降)
-        ret = ret.replace(/<br>\/p/g, '<br>');
+        ret = ret.replace(/\r?\n\/p/g, '\n');
 
         ret = ret.replace(/[MSＭＳ][TＴ]/g, "<span class='tank'>$&</span>");
         ret = ret.replace(/([^MSＭＳ])([TＴ])/g, `$1<span class='${tankClass}'>$2</span>`);

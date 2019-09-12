@@ -5,29 +5,27 @@ export default function convertMacro2Html(inStr, meRole) {
   let meleeClass = 'dps';
   let rangeClass = 'dps';
   let healerClass = 'healer';
-  if (meRole) {
-    switch (meRole) {
-      case 'MT':
-      case 'ST':
-        tankClass = 'tank me';
-        break;
-      case 'D1':
-      case 'D2':
-        dpsClass = 'dps me';
-        meleeClass = 'dps me';
-        break;
-      case 'D3':
-      case 'D4':
-        dpsClass = 'dps me';
-        rangeClass = 'dps me';
-        break;
-      case 'H1':
-      case 'H2':
-        healerClass = 'healer me';
-        break;
-      default:
-        break;
-    }
+  switch (meRole) {
+    case 'MT':
+    case 'ST':
+      tankClass = 'tank me';
+      break;
+    case 'D1':
+    case 'D2':
+      dpsClass = 'dps me';
+      meleeClass = 'dps me';
+      break;
+    case 'D3':
+    case 'D4':
+      dpsClass = 'dps me';
+      rangeClass = 'dps me';
+      break;
+    case 'H1':
+    case 'H2':
+      healerClass = 'healer me';
+      break;
+    default:
+      break;
   }
   // trim
   // 行頭用
@@ -35,7 +33,7 @@ export default function convertMacro2Html(inStr, meRole) {
   // ２行目以降用
   ret = ret.replace(/\r?\n(\[\d?\d:\d\d\] )?\([^)]*\)/g, '\n');
   // マクロ用(1行目)
-  ret = ret.replace(/^\/p/g, '\n');
+  ret = ret.replace(/^\/p/g, '');
   // マクロ用(2行目以降)
   ret = ret.replace(/\r?\n\/p/g, '\n');
 

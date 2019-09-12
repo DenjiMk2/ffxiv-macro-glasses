@@ -81,7 +81,7 @@
         ret = ret.replace(/([HＨ])([^1-2１-２])/g, `<span class='${healerClass}'>$1</span>$2`);
         ret = ret.replace(/ヒーラー/g, `<span class='${healerClass}'>$&</span>`);
         ret = ret.replace(/ヒラ/g, `<span class='${healerClass}'>$&</span>`);
-        ret = ret.replace(/[AＡ]/g, "<span class='marker-A'>A</span>");
+        ret = ret.replace(/[AＡ]([^oOｏＯ]|$)/g, "<span class='marker-A'>A</span>$1");
         ret = ret.replace(/[BＢ]/g, "<span class='marker-B'>B</span>");
         ret = ret.replace(/[CＣ]/g, "<span class='marker-C'>C</span>");
         ret = ret.replace(/([^HDＨＤ])([1１])/g, "$1<span class='marker-1'>$2</span>");

@@ -38,6 +38,8 @@
         let ret = inStr;
         let tankClass = 'tank';
         let dpsClass = 'dps';
+        let meleeClass = 'dps';
+        let rangeClass = 'dps';
         let healerClass = 'healer';
         if (meRole) {
           switch (meRole) {
@@ -47,9 +49,13 @@
               break;
             case 'D1':
             case 'D2':
+              dpsClass = 'dps me';
+              meleeClass = 'dps me';
+              break;
             case 'D3':
             case 'D4':
               dpsClass = 'dps me';
+              rangeClass = 'dps me';
               break;
             case 'H1':
             case 'H2':
@@ -75,6 +81,10 @@
         ret = ret.replace(/[DＤ][1-4１-４]/g, "<span class='dps'>$&</span>");
         ret = ret.replace(/([DＤ])([^1-4１-４P])/g, `<span class='${dpsClass}'>$1</span>$2`);
         ret = ret.replace(/(DPS|ＤＰＳ)/g, `<span class='${dpsClass}'>$&</span>`);
+        ret = ret.replace(/近接?/g, `<span class='${meleeClass}'>$&</span>`);
+        ret = ret.replace(/メレー/g, `<span class='${meleeClass}'>$&</span>`);
+        ret = ret.replace(/遠隔?/g, `<span class='${rangeClass}'>$&</span>`);
+        ret = ret.replace(/レンジ/g, `<span class='${rangeClass}'>$&</span>`);
         ret = ret.replace(/[HＨ][1-2１-２]/g, "<span class='healer'>$&</span>");
         ret = ret.replace(/([HＨ])([^1-2１-２])/g, `<span class='${healerClass}'>$1</span>$2`);
         ret = ret.replace(/ヒーラー/g, `<span class='${healerClass}'>$&</span>`);

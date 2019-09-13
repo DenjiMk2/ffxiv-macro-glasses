@@ -12,6 +12,7 @@
         <option class="healer">H1</option>
         <option class="healer">H2</option>
       </select>
+      <button v-on:click="pasteMacro">ペースト</button>
     </div>
     <textarea v-model="inMacro" @input="throwGlass">
     </textarea>
@@ -34,6 +35,10 @@
     methods: {
       throwGlass() {
         this.outMacro = convertMacro2Html(this.inMacro, this.meRole);
+      },
+      pasteMacro() {
+        this.inMacro = this.$electron.clipboard.readText();
+        this.throwGlass();
       },
     },
   };

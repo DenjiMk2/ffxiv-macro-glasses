@@ -37,6 +37,10 @@ export default function convertMacro2Html(inStr, meRole) {
   // マクロ用(2行目以降)
   ret = ret.replace(/\r?\n\/p/g, '\n');
 
+  ret = ret.replace(/　/g, '  '); // eslint-disable-line no-irregular-whitespace
+  ret = ret.replace(/</g, '&lt;');
+  ret = ret.replace(/>/g, '&gt;');
+
   ret = ret.replace(/[MSＭＳ][TＴ]/g, "<span class='tank'>$&</span>");
   ret = ret.replace(/([^MSＭＳ])([TＴ])/g, `$1<span class='${tankClass}'>$2</span>`);
   ret = ret.replace(/タンク/g, `<span class='${tankClass}'>$&</span>`);
